@@ -11,6 +11,7 @@ maps = ["Anubis", "Overpass", "Inferno", "Ancient", "Dust2", "Nuke", "Mirage", "
 
 # initialize a insta bans dictionary
 a_insta_bans = dict.fromkeys(maps, 0)
+maps_played = dict.fromkeys(maps, 0)
 
 # initializing all the possible first 3 bans
 b_insta_bans_possiblities = []
@@ -31,6 +32,7 @@ for first_map in maps:
 # initialize the dictionary
 b_final_bans = dict.fromkeys(b_final_bans_possiblities, 0)
 
+
 # print dictionaries nicely and EXCLUDES zero amoutns
 def print_dct(dct):
     for item, amount in dct.items():  # dct.iteritems() in Python 2
@@ -39,7 +41,7 @@ def print_dct(dct):
 
 # iterates through each row, ie each matches vetos
 for index, row in df.iterrows():
-    
+    maps_played[row['veto7']] += 1
     # teamA bo1
     if row["team_type"]==0 and row["match_type"]==1: 
         for one_map in maps:
@@ -62,6 +64,10 @@ print("\n{} insta bans as team B in best of 1 matches:\n".format(team_names[0]))
 print_dct(b_insta_bans)
 print("\n{} final bans as team B in best of 1 matches:\n".format(team_names[0]))
 print_dct(b_final_bans)
+print("\n{} played maps in best of 1 matches:\n".format(team_names[0]))
+for item, amount in maps_played.items():
+    if amount != 0:
+        print("{} played {} time(s).".format(item, amount))
                     
 #    if "0" in row["team_type"] and "3" in row["match_type"]: # teamA bo3
 #    if "1" in row["team_type"] and "3" in row["match_type"]: # teamB bo3
