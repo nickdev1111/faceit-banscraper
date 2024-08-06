@@ -1,0 +1,4 @@
+match_type,team_type,veto1,veto2,veto3,veto4,veto5,veto6,veto7
+1,a,Nuke,Mirage,Dust2,Vertigo,Ancient,Anubis,Inferno
+1,a,Nuke,Mirage,Vertigo,Inferno,Dust2,Ancient,Anubis
+1,b,Mirage,Nuke,Vertigo,Dust2,Ancient,Inferno,Anubis
