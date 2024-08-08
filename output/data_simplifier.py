@@ -21,10 +21,10 @@ for index, row in df.iterrows():
     # initialize the veto order
     ordered_maps = []
     # checks for the map in each veto position and records the order
-    for x in range(1,8):
+    for i in range(1,8):
         for one_map in maps:
             #if map is in veto than record which map
-            if one_map in row["veto"+str(x)]:
+            if one_map in row["veto"+str(i)]:
                 ordered_maps.append(one_map)
     
     # filters out 1v1 tourny
