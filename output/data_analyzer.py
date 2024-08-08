@@ -21,6 +21,7 @@ a_insta_bans = dict.fromkeys(maps, 0)
 a_final_bans = dict.fromkeys(five_map_perms, 0)
 b_insta_bans = dict.fromkeys(three_map_perms, 0)
 b_final_bans = dict.fromkeys(two_map_perms, 0)
+maps_played  = dict.fromkeys(maps, 0)
 
 # print dictionaries nicely and EXCLUDES zero amounts
 def print_dct(dct):
@@ -30,6 +31,7 @@ def print_dct(dct):
 
 # iterates through each row, ie each matches vetos
 for index, row in df.iterrows():
+    maps_played[row["veto7"]] += 1
     
     # teamA bo1
     if row["team_type"]==0 and row["match_type"]==1: 
@@ -50,7 +52,10 @@ for index, row in df.iterrows():
         b_final_bans[(row["veto6"],row["veto7"])] += 1
 
 # temporary output 
-print("{} insta bans as team A in best of 1 matches:\n".format(team_names[0]))
+for item, amount in maps_played.items():
+    if amount != 0:
+        print(f"{item} played {amount} time(s).")
+print("\n{} insta bans as team A in best of 1 matches:\n".format(team_names[0]))
 print_dct(a_insta_bans)
 print("\n{} final bans as team A in best of 1 matches:\n".format(team_names[0]))
 print_dct(a_final_bans)
