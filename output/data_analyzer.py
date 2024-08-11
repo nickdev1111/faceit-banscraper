@@ -3,10 +3,10 @@ import pandas as pd
 from itertools import permutations 
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv('simp_DeathByGamers.csv')
+df = pd.read_csv('simp_tokyo.csv')
 
 # Team names includes previous names - should be automated later
-team_names = ["Death By Gamers"]
+team_names = ["tokyo"]
 
 # map names
 maps = ["Anubis", "Overpass", "Inferno", "Ancient", "Dust2", "Nuke", "Mirage", "Vertigo"]
@@ -52,6 +52,7 @@ for index, row in df.iterrows():
         b_final_bans[(row["veto6"],row["veto7"])] += 1
 
 # temporary output 
+print("\n{}'s maps played in best of 1 matches:\n".format(team_names[0]))
 for item, amount in maps_played.items():
     if amount != 0:
         print(f"{item} played {amount} time(s).")

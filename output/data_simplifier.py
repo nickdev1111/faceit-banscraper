@@ -1,10 +1,10 @@
 import pandas as pd
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv('mod_Boop Boop Gang.csv')
+df = pd.read_csv('mod_tokyo.csv')
 
 # Team names includes previous names - should be automated later
-team_names = ["Boop Boop Gang"]
+team_names = ["tokyo","TOKYO","F5 Esports","StompGods"]
 
 # map names
 maps = ["Anubis", "Overpass", "Inferno", "Ancient", "Dust2", "Nuke", "Mirage", "Vertigo"]
@@ -34,21 +34,21 @@ for index, row in df.iterrows():
         for team in team_names:
             if team in row["veto1"]:
                 team_types.append(0) # 0 = team A
-            else:
+            elif team in row["veto2"]:
                 team_types.append(1) # 1 = team B
             
-            # sets match type as bo3
-            if "picked" in row["veto3"]:
-                # adds 3 to column match type
-                match_types.append(3)
-                #sets match type as bo5
-                if "picked" in row["veto6"]:
-                    # adds 5 to column match type
-                    match_types.append(5)
-            # sets match type as bo1
-            else:
-                # adds 1 to column match type
-                match_types.append(1)
+        # sets match type as bo3
+        if "picked" in row["veto3"]:
+            # adds 3 to column match type
+            match_types.append(3)
+            #sets match type as bo5
+            if "picked" in row["veto6"]:
+                # adds 5 to column match type
+                match_types.append(5)
+        # sets match type as bo1
+        else:
+            # adds 1 to column match type
+            match_types.append(1)
     
         # temp variables to place into simplified data frame
         m1,m2,m3,m4,m5,m6,m7 = ordered_maps
@@ -58,9 +58,10 @@ for index, row in df.iterrows():
         df_temp_vetoes = df_temp_vetoes._append(df_temp, ignore_index=True)
 ###############################################################################################
 # add column match type
+print(len(match_types),len(team_types))
 df_types = pd.DataFrame({'match_type': match_types, 'team_type': team_types})
 # joins the type with the maps
 df_final = pd.concat([df_types, df_temp_vetoes], axis=1)
 
 # Write the filtered DataFrame to a new CSV file
-df_final.to_csv('simp_Boop Boop Gang.csv', index=False)
+df_final.to_csv('simp_tokyo.csv', index=False)
