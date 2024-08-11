@@ -58,7 +58,6 @@ for index, row in df.iterrows():
         df_temp_vetoes = df_temp_vetoes._append(df_temp, ignore_index=True)
 ###############################################################################################
 # add column match type
-print(len(match_types),len(team_types))
 df_types = pd.DataFrame({'match_type': match_types, 'team_type': team_types})
 # joins the type with the maps
 df_final = pd.concat([df_types, df_temp_vetoes], axis=1)
