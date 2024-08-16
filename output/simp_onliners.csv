@@ -1,0 +1,11 @@
+match_type,team_type,veto1,veto2,veto3,veto4,veto5,veto6,veto7
+1,0,Vertigo,Ancient,Anubis,Nuke,Dust2,Mirage,Inferno
+1,0,Vertigo,Inferno,Dust2,Nuke,Mirage,Anubis,Ancient
+1,1,Mirage,Vertigo,Nuke,Dust2,Ancient,Inferno,Anubis
+1,1,Anubis,Vertigo,Nuke,Mirage,Ancient,Dust2,Inferno
+1,0,Vertigo,Inferno,Mirage,Dust2,Nuke,Ancient,Anubis
+1,0,Vertigo,Dust2,Ancient,Mirage,Nuke,Inferno,Anubis
+1,0,Vertigo,Nuke,Anubis,Dust2,Inferno,Ancient,Mirage
+1,0,Vertigo,Inferno,Mirage,Dust2,Nuke,Ancient,Anubis
+1,0,Vertigo,Nuke,Dust2,Inferno,Mirage,Anubis,Ancient
+1,1,Ancient,Vertigo,Nuke,Inferno,Anubis,Dust2,Mirage

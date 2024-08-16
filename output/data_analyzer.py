@@ -1,10 +1,10 @@
 import pandas as pd
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv('simp_Boop Boop Gang.csv')
+df = pd.read_csv('simp_onliners.csv')
 df.describe()
 # Team names includes previous names - should be automated later
-team_names = ["Boop Boop Gang"]
+team_names = ["onliners"]
 
 # map names
 maps = ["Anubis", "Overpass", "Inferno", "Ancient", "Dust2", "Nuke", "Mirage", "Vertigo"]

@@ -1,10 +1,10 @@
 import pandas as pd
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv('mod_Boop Boop Gang.csv')
+df = pd.read_csv('mod_onliners.csv')
 
 # Team names includes previous names - should be automated later
-team_names = ["Boop Boop Gang"]
+team_names = ["onliners"]
 
 # map names
 maps = ["Anubis", "Overpass", "Inferno", "Ancient", "Dust2", "Nuke", "Mirage", "Vertigo"]
@@ -63,4 +63,4 @@ df_types = pd.DataFrame({'match_type': match_types, 'team_type': team_types})
 df_final = pd.concat([df_types, df_temp_vetoes], axis=1)
 
 # Write the filtered DataFrame to a new CSV file
-df_final.to_csv('simp_Boop Boop Gang.csv', index=False)
+df_final.to_csv('simp_onliners.csv', index=False)
