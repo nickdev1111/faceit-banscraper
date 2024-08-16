@@ -1,7 +1,11 @@
 import pandas as pd
 
 # Read the CSV file into a DataFrame
+<<<<<<< HEAD
 df = pd.read_csv('onliners.csv')
+=======
+df = pd.read_csv('tokyo.csv')
+>>>>>>> 594f1834ea78b02ee68bc92968facecc918dc907
 
 # Filter out rows where the second column has empty lists
 df_filtered = df[df['veto_data'].apply(len) > 2]
@@ -21,4 +25,8 @@ for index, row in df_filtered.iterrows():
         df_final = df_final._append(df_temp, ignore_index = True)
 
 # Write the filtered DataFrame to a new CSV file
+<<<<<<< HEAD
 df_final.to_csv('mod_onliners.csv', index=False)
+=======
+df_final.to_csv('mod_tokyo.csv', index=False)
+>>>>>>> 594f1834ea78b02ee68bc92968facecc918dc907

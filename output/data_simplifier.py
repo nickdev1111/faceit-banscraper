@@ -1,10 +1,17 @@
 import pandas as pd
 
 # Read the CSV file into a DataFrame
+<<<<<<< HEAD
 df = pd.read_csv('mod_onliners.csv')
 
 # Team names includes previous names - should be automated later
 team_names = ["onliners"]
+=======
+df = pd.read_csv('mod_tokyo.csv')
+
+# Team names includes previous names - should be automated later
+team_names = ["tokyo","TOKYO","F5 Esports","StompGods"]
+>>>>>>> 594f1834ea78b02ee68bc92968facecc918dc907
 
 # map names
 maps = ["Anubis", "Overpass", "Inferno", "Ancient", "Dust2", "Nuke", "Mirage", "Vertigo"]
@@ -21,10 +28,10 @@ for index, row in df.iterrows():
     # initialize the veto order
     ordered_maps = []
     # checks for the map in each veto position and records the order
-    for x in range(1,8):
+    for i in range(1,8):
         for one_map in maps:
             #if map is in veto than record which map
-            if one_map in row["veto"+str(x)]:
+            if one_map in row["veto"+str(i)]:
                 ordered_maps.append(one_map)
     
     # filters out 1v1 tourny
@@ -34,21 +41,21 @@ for index, row in df.iterrows():
         for team in team_names:
             if team in row["veto1"]:
                 team_types.append(0) # 0 = team A
-            else:
+            elif team in row["veto2"]:
                 team_types.append(1) # 1 = team B
             
-            # sets match type as bo3
-            if "picked" in row["veto3"]:
-                # adds 3 to column match type
-                match_types.append(3)
-                #sets match type as bo5
-                if "picked" in row["veto6"]:
-                    # adds 5 to column match type
-                    match_types.append(5)
-            # sets match type as bo1
-            else:
-                # adds 1 to column match type
-                match_types.append(1)
+        # sets match type as bo3
+        if "picked" in row["veto3"]:
+            # adds 3 to column match type
+            match_types.append(3)
+            #sets match type as bo5
+            if "picked" in row["veto6"]:
+                # adds 5 to column match type
+                match_types.append(5)
+        # sets match type as bo1
+        else:
+            # adds 1 to column match type
+            match_types.append(1)
     
         # temp variables to place into simplified data frame
         m1,m2,m3,m4,m5,m6,m7 = ordered_maps
@@ -63,4 +70,8 @@ df_types = pd.DataFrame({'match_type': match_types, 'team_type': team_types})
 df_final = pd.concat([df_types, df_temp_vetoes], axis=1)
 
 # Write the filtered DataFrame to a new CSV file
+<<<<<<< HEAD
 df_final.to_csv('simp_onliners.csv', index=False)
+=======
+df_final.to_csv('simp_tokyo.csv', index=False)
+>>>>>>> 594f1834ea78b02ee68bc92968facecc918dc907
